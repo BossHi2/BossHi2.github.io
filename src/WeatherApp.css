@@ -1,0 +1,152 @@
+#weather-app{
+    position: relative;
+    text-align: center;
+    height:fit-content;
+    z-index: 1;
+    color: white;
+    border: 2px solid rgba(0, 0, 0, 0);
+    border-radius: 10px;
+    width: max-content;
+    left: 50%;
+    transform: translate(-50%);
+    padding: 20px;
+    margin: 10px;
+    
+    background: rgba(255, 255, 255, 0.178);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter:blur(5px);
+    transition: 250ms;
+}
+
+#weather-app:hover{
+    background: rgba(0, 0, 0, 0.452);
+}
+
+#background{
+    position: absolute;
+    z-index: 4;
+    background: url('assets/clouds.mp4');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 500px;
+    height: 700px;
+    left: 40%;
+    top: 15%;
+    
+    border-radius: 10px;
+}
+
+#header{
+    position: relative;
+    background-color: white;
+    margin-bottom: 10px;
+    height: 25px;
+    width: 100%;
+    cursor:move
+}
+
+#delete{
+    width: 16px;
+    height: 16px;
+    background-color: red;
+    border-radius: 8px;
+    margin: 5px;
+    border: none;
+    text-align: center;
+    line-height: 0;
+    font-size: 15px;
+    text-indent: -9999px;
+    cursor: pointer;
+}
+
+#delete:hover{
+    text-indent: 1px;
+}
+
+@keyframes changeToRain {
+    100%{background: url('assets/rain.mp4'); 
+        background-repeat: no-repeat;
+        background-size: cover;
+        }
+}
+
+.toRain{
+    animation: changeToRain forwards;
+}
+
+#search-bar{
+    position: relative;
+    border: none;
+    background-color: rgba(240, 248, 255, 0);
+    border-bottom: 2px solid rgb(70, 70, 70);
+    padding-left: 5px;
+    margin: 5px;
+    color: aliceblue;
+    width: 25vh;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 1;
+    transition: 250ms;
+    height: 25px;
+    caret-color: aliceblue;
+}
+
+#search-bar:hover{
+    background: rgba(0, 0, 0, 0.452);
+    border-radius: 5px;
+}
+
+#search-bar:focus{
+    outline: none;
+}
+
+::placeholder{
+    color: aliceblue;
+}
+
+.weather-data{
+    font-weight: normal;
+    padding: 10px;
+    background-color: rgba(250, 235, 215, 0);
+}
+
+.weather-extra-info{
+    text-align: left;
+}
+
+#location-title{
+    font-size: 1.5em;
+    margin-bottom: 0px;
+    margin-top: 20px;
+    background-color: rgba(250, 235, 215, 0);
+}
+
+#icon{
+    position: relative;
+    display: inline-block;
+    left: 15px;
+    bottom: 10px;
+}
+
+#temperature{
+    position: relative;
+    padding: 0;
+    left: 10px;
+    font-size: 5em;
+}
+
+#description{
+    position: relative;
+    padding: 0;
+    font-size: 1.5em;
+    display: inline-block;
+    left: 15px;
+    bottom: 25px;
+}
+
+#video{
+    position: fixed;
+    width: 100%;
+    z-index: -1;
+    top: 0px;
+}
