@@ -61,9 +61,9 @@ function WeatherApp({setPage}){
 
         
         if(description.innerHTML == 'Rain' || (description.innerHTML == 'Thunderstorm')){
-            document.getElementById('background').classList = 'toRain';
+            document.getElementById('background').classList += ' toRain';
         } else{
-            document.getElementById('background').classList= "";
+            document.getElementById('background').classList = '';
         }
     }
 
@@ -93,7 +93,8 @@ function WeatherApp({setPage}){
 
   return(
     <Draggable handle='#header'>
-        <div id='background'>
+        <div id='appWrapper'>
+            <div id='background'>
             <div id='header'>
                 <button id='delete' onClick={()=>setPage('home')}>x</button>
             </div>
@@ -122,6 +123,7 @@ function WeatherApp({setPage}){
                 <h1 id='sunrise' className='weather-data weather-extra-info'>Sunrise:</h1>
 
                 <h1 id='sunset' className='weather-data weather-extra-info'>Sunset:</h1>
+            </div>
             </div>
         </div>
     </Draggable>
