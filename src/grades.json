@@ -1,0 +1,93 @@
+{
+    "first": {
+        "name": "ENG 1 KAP/GT B",
+        "average": 100.0,
+        "Major": [],
+        "Minor": [],
+        "Other": [
+            "100.0#Choice Book Tasting Menu"
+        ]
+    },
+    "second": {
+        "name": "ALG 2 KAP/GT B",
+        "average": 99.0,
+        "Major": [
+            "#Module 13 Test"
+        ],
+        "Minor": [
+            "99.00#Quiz 13.1-13.2"
+        ],
+        "Other": [
+            "#HW 13.3-13.4",
+            "#Warmups 4/8-4/19",
+            "100.0#Population Growth Activity",
+            "100.0#HW 13.1-13.2 Evens",
+            "100.0#13.1 Classwork 1-7"
+        ]
+    },
+    "third": {
+        "name": "AP COMP SCI M B",
+        "average": 98.0,
+        "Major": [
+            "#6th 6-Weeks Take Home Test",
+            "#U14 Test 9101112",
+            "#U14 Test 5678",
+            "98.00#U14 Test"
+        ],
+        "Minor": [
+            "#U14 Quiz 10/12",
+            "#U14 Quiz 9/11",
+            "#U14 Quiz 6/8",
+            "#U14 Quiz 5/7",
+            "98.00#U14 Quiz 2/4",
+            "97.00#U14 Quiz 1/3"
+        ],
+        "Other": [
+            "#14.13 / 14.15 Completion",
+            "#14.12 / 14.14 Completion",
+            "#14.9 / 14.11 Completion",
+            "#14.8 / 14.10 Completion",
+            "100.0#14.3 / 14.6 Completion",
+            "100.0#14.1 / 14.4 Completion"
+        ]
+    },
+    "fourth": {
+        "name": "BIO KAP/GT B",
+        "average": 95.0,
+        "Major": [],
+        "Minor": [
+            "93.00#Unit 13: Biology STAAR Review Quiz"
+        ],
+        "Other": [
+            "100.0#Unit 13 - STAAR Review Activities 4",
+            "79.00#Unit 13 - STAAR Review Activities 3",
+            "100.0#Unit 13: STAAR Review Activities 2",
+            "100.0#Unit 13: STAAR Review Activities 1"
+        ]
+    },
+    "fifth": {
+        "name": "DEBATE 1 B",
+        "average": 0.0,
+        "Major": [],
+        "Minor": [],
+        "Other": []
+    },
+    "sixth": {
+        "name": "AP COMP SCI PRINC B",
+        "average": 100.0,
+        "Major": [],
+        "Minor": [
+            "100.0#Innovation Simulation one-pager"
+        ],
+        "Other": [
+            "100.0#Digital info Review Quiz"
+        ]
+    },
+    "seventh": {
+        "name": "SPAN 2 B",
+        "average": 0.0,
+        "Major": [],
+        "Minor": [],
+        "Other": []
+    }
+}

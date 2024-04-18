@@ -7,6 +7,7 @@
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
     cursor:default;
+    color:black;
 }
 
 .app-button{
@@ -19,6 +20,12 @@
 .app-button button{
     background-color: transparent;
     border: none;
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
 }
 
 .app-button p{
@@ -29,13 +36,11 @@
 }
 
 #weather-button{
-    height: 50px;
-    width: 50px;
-    border-radius: 10px;
     background-image: url(assets/weatherIcon.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    cursor: pointer;
+}
+
+#grades-button{
+    background-image: url(assets/gradesicon.jpeg);
 }
 
 #homeScreen{
@@ -51,5 +56,76 @@
 }
 
 #time{
+    position: relative;
     color: white;
+    background-color: rgba(255, 255, 255, 0.444);
+    width: max-content;
+    padding: 10px;
+    border-radius: 10px;
+    top: 50%;
+    transform: translate(0,-50%);
+    margin-left: 10px;
+    transition: 250ms;
+}
+
+#time:hover{
+    background-color: rgba(255, 255, 255, 0.142);
+    border: 2px solid rgba(255, 255, 255, 0.444);
+}
+
+dialog{
+    height: 300px;
+    width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 101;
+    border: none;
+    border-radius: 10px;
+}
+
+dialog button{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    background-color: lightblue;
+    color: rgb(50, 63, 68);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 250ms;
+    display: block;
+}
+
+dialog button:hover{
+    animation: button-animation 5s infinite;
+}
+
+@keyframes button-animation {
+    20%{background-color: rgb(173, 174, 230);}
+    40%{background-color: rgb(218, 173, 230);}
+    60%{background-color: rgb(230, 173, 173);}
+    80%{background-color: rgb(227, 230, 173);}
+    100%{background-color: lightblue;}
+}
+
+dialog h1{
+    position: relative;
+    margin: 10px;
+    text-align: center;
+    top: 20%;
+}
+
+#dark-around-dialog{
+    background-color: rgba(0, 0, 0, 0.539);
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
 }
