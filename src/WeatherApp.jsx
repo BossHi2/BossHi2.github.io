@@ -63,7 +63,7 @@ function WeatherApp({setPage}){
         if(description.innerHTML == 'Rain' || (description.innerHTML == 'Thunderstorm')){
             document.getElementById('background').classList += ' toRain';
         } else{
-            document.getElementById('background').classList = '';
+            document.getElementById('background').classList = 'toCloud';
         }
     }
 

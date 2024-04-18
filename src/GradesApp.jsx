@@ -138,8 +138,8 @@ function GradesApp({setPage}){
             }
         } else if(view == 'secondGrades'){
             for(var i = 0; i<grades.second.Major.length; i++){
-                secondMajorNames.push(grades.second.Minor[i].substring(grades.second.Major[i].indexOf('#') + 1));
-                secondMajorGrades.push(grades.second.Minor[i].substring(0,grades.second.Major[i].indexOf('#')));
+                secondMajorNames.push(grades.second.Major[i].substring(grades.second.Major[i].indexOf('#') + 1));
+                secondMajorGrades.push(grades.second.Major[i].substring(0,grades.second.Major[i].indexOf('#')));
             }
         } else if(view == 'thirdGrades'){
             for(var i = 0; i<grades.third.Major.length; i++){
@@ -202,8 +202,11 @@ function GradesApp({setPage}){
                     
                     {view === 'firstGrades' &&
                         <>
-                            <button className='back-button' onClick={()=>setView('home')}></button>
-                            <h1 className='title'>{grades.first.name}</h1>
+                            <div className='grades-header'>
+                                <button className='back-button' onClick={()=>setView('home')}></button>
+                                <h1 className='title'>{grades.first.name}</h1>
+                                <h1 className='individual-class-average'>{grades.first.average}</h1>
+                            </div>
                             <div className='other-average'>
                                 {grades.first.Other.length > 0 ? (
                                     <div className='average-display'>
@@ -258,8 +261,11 @@ function GradesApp({setPage}){
                     }
                     {view === 'secondGrades' &&
                         <>
-                            <button className='back-button' onClick={()=>setView('home')}></button>
-                            <h1 className='title'>{grades.second.name}</h1>
+                            <div className='grades-header'>
+                                <button className='back-button' onClick={()=>setView('home')}></button>
+                                <h1 className='title'>{grades.second.name}</h1>
+                                <h1 className='individual-class-average'>{grades.second.average}</h1>
+                            </div>
                             <div className='other-average'>
                                 {grades.second.Other.length > 0 ? (
                                     <div className='average-display'>
@@ -314,8 +320,11 @@ function GradesApp({setPage}){
                     }
                     {view === 'thirdGrades' &&
                         <>
-                            <button className='back-button' onClick={()=>setView('home')}></button>
-                            <h1 className='title'>{grades.third.name}</h1>
+                           <div className='grades-header'>
+                                <button className='back-button' onClick={()=>setView('home')}></button>
+                                <h1 className='title'>{grades.third.name}</h1>
+                                <h1 className='individual-class-average'>{grades.third.average}</h1>
+                            </div>
                             <div className='other-average'>
                                 {grades.third.Other.length > 0 ? (
                                     <div className='average-display'>
@@ -370,8 +379,11 @@ function GradesApp({setPage}){
                     }
                     {view === 'fourthGrades' &&
                         <>
-                            <button className='back-button' onClick={()=>setView('home')}></button>
-                            <h1 className='title'>{grades.fourth.name}</h1>
+                            <div className='grades-header'>
+                                <button className='back-button' onClick={()=>setView('home')}></button>
+                                <h1 className='title'>{grades.fourth.name}</h1>
+                                <h1 className='individual-class-average'>{grades.fourth.average}</h1>
+                            </div>
                             <div className='other-average'>
                                 {grades.fourth.Other.length > 0 ? (
                                     <div className='average-display'>
@@ -426,8 +438,11 @@ function GradesApp({setPage}){
                     }
                     {view === 'fifthGrades' &&
                         <>
-                            <button className='back-button' onClick={()=>setView('home')}></button>
-                            <h1 className='title'>{grades.fifth.name}</h1>
+                            <div className='grades-header'>
+                                <button className='back-button' onClick={()=>setView('home')}></button>
+                                <h1 className='title'>{grades.fifth.name}</h1>
+                                <h1 className='individual-class-average'>{grades.fifth.average}</h1>
+                            </div>
                             <div className='other-average'>
                                 {grades.fifth.Other.length > 0 ? (
                                     <div className='average-display'>
@@ -482,8 +497,11 @@ function GradesApp({setPage}){
                     }
                     {view === 'sixthGrades' &&
                         <>
-                            <button className='back-button' onClick={()=>setView('home')}></button>
-                            <h1 className='title'>{grades.sixth.name}</h1>
+                            <div className='grades-header'>
+                                <button className='back-button' onClick={()=>setView('home')}></button>
+                                <h1 className='title'>{grades.sixth.name}</h1>
+                                <h1 className='individual-class-average'>{grades.sixth.average}</h1>
+                            </div>
                             <div className='other-average'>
                                 {grades.sixth.Other.length > 0 ? (
                                     <div className='average-display'>
@@ -538,8 +556,11 @@ function GradesApp({setPage}){
                     }
                     {view === 'seventhGrades' &&
                         <>
-                            <button className='back-button' onClick={()=>setView('home')}></button>
-                            <h1 className='title'>{grades.seventh.name}</h1>
+                            <div className='grades-header'>
+                                <button className='back-button' onClick={()=>setView('home')}></button>
+                                <h1 className='title'>{grades.seventh.name}</h1>
+                                <h1 className='individual-class-average'>{grades.seventh.average}</h1>
+                            </div>
                             <div className='other-average'>
                                 {grades.seventh.Other.length > 0 ? (
                                     <div className='average-display'>

@@ -19,7 +19,7 @@ function App() {
             dateMinutes = "0" + dateMinutes;
 
         if(t != null){
-            if(date.getHours() > 12)
+            if(date.getHours() > 11)
                 t.innerHTML = date.getHours()-12 + ":" + dateMinutes + " PM";
             else
                 t.innerHTML = date.getHours() + ":" + dateMinutes + " AM";
