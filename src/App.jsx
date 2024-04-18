@@ -8,32 +8,6 @@ import './main.css';
 
 function App() {
     const [page, setPage] = useState("home");
-
-    const time =()=>{
-        const t = document.getElementById('time');
-        
-            
-        let date = new Date();
-        let dateMinutes = date.getMinutes();
-        if(dateMinutes < 10)
-            dateMinutes = "0" + dateMinutes;
-
-        if(t != null){
-            if(date.getHours() > 11)
-                t.innerHTML = date.getHours()-12 + ":" + dateMinutes + " PM";
-            else
-                t.innerHTML = date.getHours() + ":" + dateMinutes + " AM";
-        }
-
-        let x = 0;
-        x++;
-        if(x==1){
-            setInterval(time, 20000);
-            document.getElementById('dark-around-dialog').style.zIndex = -1;
-            document.getElementById('welcome-card').open = false;
-        }
-            
-    }
     
     
 
@@ -47,9 +21,7 @@ function App() {
             }
 
             <div id='homeScreen'>
-                <div id='top-bar'>
-                    <p id='time'></p>
-                </div>
+                
                 <div className='app-button'>
                     <button  id='weather-button' onClick={()=>setPage('weather')}></button>
                     <p>Weather</p>
@@ -63,7 +35,7 @@ function App() {
 
             <dialog id='welcome-card' open={true}>
                 <h1>Welcome to SamOS</h1>
-                <button onClick={()=>time()}>Explore</button>
+                <button>Explore</button>
             </dialog>
             <div id='dark-around-dialog'></div>
         </>
