@@ -179,7 +179,7 @@ li span{
 
 .grade-display{
     overflow-y:scroll;
-    height: 430px;
+    height: 370px;
 }
 
 ::-webkit-scrollbar{
