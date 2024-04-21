@@ -35,7 +35,7 @@ function App() {
 
             <dialog id='welcome-card' open={true}>
                 <h1>Welcome to SamOS</h1>
-                <button onClick={()=>{document.getElementById('welcome-card').style.zIndex = -100; document.getElementById('dark-around-dialog').style.zIndex = -100}}>Explore</button>
+                <button id='welcome-card-button' onClick={()=>{document.getElementById('welcome-card').style.zIndex = -100; document.getElementById('dark-around-dialog').style.zIndex = -100}}>Explore</button>
             </dialog>
             <div id='dark-around-dialog'></div>
         </>

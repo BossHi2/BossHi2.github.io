@@ -62,7 +62,7 @@ dialog{
     border-radius: 10px;
 }
 
-dialog button{
+#welcome-card-button{
     position: relative;
     top: 50%;
     left: 50%;
@@ -79,7 +79,7 @@ dialog button{
     display: block;
 }
 
-dialog button:hover{
+#welcome-card-button:hover{
     animation: button-animation 5s infinite;
 }
 

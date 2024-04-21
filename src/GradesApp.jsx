@@ -5,6 +5,7 @@ import React, {useState} from "react";
 
 function GradesApp({setPage}){
     const [view, setView] = useState('home');
+    const [whatIf, setWhatIf] = useState('no');
     const firstOtherNames = [];
     const firstOtherGrades = [];
     const firstMinorNames = [];
@@ -174,7 +175,223 @@ function GradesApp({setPage}){
         setMajor();
     }
 
+    function isAP(pathToName){
+        if(pathToName.indexOf('AP') == 0){
+            return true;
+        } else
+            return false;
+    }
+
+    function calculateAP(other, minor, major){
+        let otherGrade = other;
+        let minorGrade = minor;
+        let majorGrade = major;
+
+        if(otherGrade != 0 && minorGrade == 0 && majorGrade == 0)
+            return (otherGrade);
+        else if(otherGrade == 0 && minorGrade != 0 && majorGrade == 0)
+            return (minorGrade);
+        else if(otherGrade == 0 && minorGrade == 0 && majorGrade != 0)
+            return (majorGrade);
+        else if(otherGrade != 0 && minorGrade != 0 && majorGrade == 0)
+            return (otherGrade*(.3333) + minorGrade*(.6666));
+        else if(otherGrade != 0 && minorGrade == 0 && majorGrade != 0)
+            return (otherGrade*.125 + majorGrade*.875);
+        else if(otherGrade == 0 && minorGrade != 0 && majorGrade != 0)
+            return (minorGrade*.2222 + majorGrade*.7777);
+        else
+            return (otherGrade*.1) + (minorGrade*.2) + (majorGrade*.7);
+    }
+
+    function calculateNoAP(other, minor, major){
+        let otherGrade = other;
+        let minorGrade = minor;
+        let majorGrade = major;
+
+        if(otherGrade != 0 && minorGrade == 0 && majorGrade == 0)
+            return (otherGrade);
+        else if(otherGrade == 0 && minorGrade != 0 && majorGrade == 0)
+            return (minorGrade);
+        else if(otherGrade == 0 && minorGrade == 0 && majorGrade != 0)
+            return (majorGrade);
+        else if(otherGrade != 0 && minorGrade != 0 && majorGrade == 0)
+            return (otherGrade*(.25) + minorGrade*(.75));
+        else if(otherGrade != 0 && minorGrade == 0 && majorGrade != 0)
+            return (otherGrade*.1428 + majorGrade*.8568);
+        else if(otherGrade == 0 && minorGrade != 0 && majorGrade != 0)
+            return (minorGrade*.3333 + majorGrade*.6666);
+
+        return (otherGrade*.1) + (minorGrade*.3) + (majorGrade*.6);
+    }
+
+    const calculateWhatIf = ()=>{
+        const dropDown = document.getElementById('grade-type-select');
+        const input = document.getElementById('input-grade');
+
+        const selectedIndex = dropDown.selectedIndex;
+        const userInput = Number(input.value);
+
+        let otherAverage, minorAverage, majorAverage, classAverage;
+
+        if(isNaN(userInput))
+            alert("\""+ input.value + "\""+ ' is not valid grade');
+        else if(userInput == ""){
+            alert('Please input a grade');
+        } else{
+            if(view === 'firstGrades'){
+                otherAverage = average(grades.first.Other);
+                minorAverage = average(grades.first.Minor);
+                majorAverage = average(grades.first.Major);
+
+                if(selectedIndex == 0)
+                    otherAverage = ((otherAverage * getNumOfGrades(grades.first.Other)) + userInput)/(getNumOfGrades(grades.first.Other)+1);
+                else if(selectedIndex == 1)
+                    minorAverage = ((minorAverage * getNumOfGrades(grades.first.Minor)) + userInput)/(getNumOfGrades(grades.first.Minor)+1);
+                else if(selectedIndex == 2){
+                    majorAverage = ((majorAverage * getNumOfGrades(grades.first.Major)) + userInput)/(getNumOfGrades(grades.first.Major)+1);
+                }
+
+                if(isAP(grades.first.name)){
+                    classAverage = calculateAP(otherAverage, minorAverage, majorAverage);
+                } else{
+                    classAverage = calculateNoAP(otherAverage, minorAverage, majorAverage);
+                }
+            }
+            if(view === 'secondGrades'){
+                otherAverage = average(grades.second.Other);
+                minorAverage = average(grades.second.Minor);
+                majorAverage = average(grades.second.Major);
+
+                if(selectedIndex == 0)
+                    otherAverage = ((otherAverage * getNumOfGrades(grades.second.Other)) + userInput)/(getNumOfGrades(grades.second.Other)+1);
+                else if(selectedIndex == 1)
+                    minorAverage = ((minorAverage * getNumOfGrades(grades.second.Minor)) + userInput)/(getNumOfGrades(grades.second.Minor)+1);
+                else if(selectedIndex == 2){
+                    majorAverage = ((majorAverage * getNumOfGrades(grades.second.Major)) + userInput)/(getNumOfGrades(grades.second.Major)+1);
+                }
+
+                if(isAP(grades.second.name)){
+                    classAverage = calculateAP(otherAverage, minorAverage, majorAverage);
+                } else{
+                    classAverage = calculateNoAP(otherAverage, minorAverage, majorAverage);
+                }
+            }
+            if(view === 'thirdGrades'){
+                otherAverage = average(grades.third.Other);
+                minorAverage = average(grades.third.Minor);
+                majorAverage = average(grades.third.Major);
+
+                if(selectedIndex == 0)
+                    otherAverage = ((otherAverage * getNumOfGrades(grades.third.Other)) + userInput)/(getNumOfGrades(grades.third.Other)+1);
+                else if(selectedIndex == 1)
+                    minorAverage = ((minorAverage * getNumOfGrades(grades.third.Minor)) + userInput)/(getNumOfGrades(grades.third.Minor)+1);
+                else if(selectedIndex == 2){
+                    majorAverage = ((majorAverage * getNumOfGrades(grades.third.Major)) + userInput)/(getNumOfGrades(grades.third.Major)+1);
+                }
+
+                if(isAP(grades.third.name)){
+                    classAverage = calculateAP(otherAverage, minorAverage, majorAverage);
+                } else{
+                    classAverage = calculateNoAP(otherAverage, minorAverage, majorAverage);
+                }
+            }
+            if(view === 'fourthGrades'){
+                otherAverage = average(grades.fourth.Other);
+                minorAverage = average(grades.fourth.Minor);
+                majorAverage = average(grades.fourth.Major);
+
+                if(selectedIndex == 0)
+                    otherAverage = ((otherAverage * getNumOfGrades(grades.fourth.Other)) + userInput)/(getNumOfGrades(grades.fourth.Other)+1);
+                else if(selectedIndex == 1)
+                    minorAverage = ((minorAverage * getNumOfGrades(grades.fourth.Minor)) + userInput)/(getNumOfGrades(grades.fourth.Minor)+1);
+                else if(selectedIndex == 2){
+                    majorAverage = ((majorAverage * getNumOfGrades(grades.fourth.Major)) + userInput)/(getNumOfGrades(grades.fourth.Major)+1);
+                }
+
+                if(isAP(grades.fourth.name)){
+                    classAverage = calculateAP(otherAverage, minorAverage, majorAverage);
+                } else{
+                    classAverage = calculateNoAP(otherAverage, minorAverage, majorAverage);
+                }
+            }
+            if(view === 'fifthGrades'){
+                otherAverage = average(grades.fifth.Other);
+                minorAverage = average(grades.fifth.Minor);
+                majorAverage = average(grades.fifth.Major);
+
+                if(selectedIndex == 0)
+                    otherAverage = ((otherAverage * getNumOfGrades(grades.fifth.Other)) + userInput)/(getNumOfGrades(grades.fifth.Other)+1);
+                else if(selectedIndex == 1)
+                    minorAverage = ((minorAverage * getNumOfGrades(grades.fifth.Minor)) + userInput)/(getNumOfGrades(grades.fifth.Minor)+1);
+                else if(selectedIndex == 2){
+                    majorAverage = ((majorAverage * getNumOfGrades(grades.fifth.Major)) + userInput)/(getNumOfGrades(grades.fifth.Major)+1);
+                }
+
+                if(isAP(grades.fifth.name)){
+                    classAverage = calculateAP(otherAverage, minorAverage, majorAverage);
+                } else{
+                    classAverage = calculateNoAP(otherAverage, minorAverage, majorAverage);
+                }
+            }
+            if(view === 'sixthGrades'){
+                otherAverage = average(grades.sixth.Other);
+                minorAverage = average(grades.sixth.Minor);
+                majorAverage = average(grades.sixth.Major);
+
+                if(selectedIndex == 0)
+                    otherAverage = ((otherAverage * getNumOfGrades(grades.sixth.Other)) + userInput)/(getNumOfGrades(grades.sixth.Other)+1);
+                else if(selectedIndex == 1)
+                    minorAverage = ((minorAverage * getNumOfGrades(grades.sixth.Minor)) + userInput)/(getNumOfGrades(grades.sixth.Minor)+1);
+                else if(selectedIndex == 2){
+                    majorAverage = ((majorAverage * getNumOfGrades(grades.sixth.Major)) + userInput)/(getNumOfGrades(grades.sixth.Major)+1);
+                }
+
+                if(isAP(grades.sixth.name)){
+                    classAverage = calculateAP(otherAverage, minorAverage, majorAverage);
+                } else{
+                    classAverage = calculateNoAP(otherAverage, minorAverage, majorAverage);
+                }
+            }
+            if(view === 'seventhGrades'){
+                otherAverage = average(grades.seventh.Other);
+                minorAverage = average(grades.seventh.Minor);
+                majorAverage = average(grades.seventh.Major);
+
+                if(selectedIndex == 0)
+                    otherAverage = ((otherAverage * getNumOfGrades(grades.seventh.Other)) + userInput)/(getNumOfGrades(grades.seventh.Other)+1);
+                else if(selectedIndex == 1)
+                    minorAverage = ((minorAverage * getNumOfGrades(grades.seventh.Minor)) + userInput)/(getNumOfGrades(grades.seventh.Minor)+1);
+                else if(selectedIndex == 2){
+                    majorAverage = ((majorAverage * getNumOfGrades(grades.seventh.Major)) + userInput)/(getNumOfGrades(grades.seventh.Major)+1);
+                }
+
+                if(isAP(grades.seventh.name)){
+                    classAverage = calculateAP(otherAverage, minorAverage, majorAverage);
+                } else{
+                    classAverage = calculateNoAP(otherAverage, minorAverage, majorAverage);
+                }
+            }
+
+
+            alert('Your class average will be ' + classAverage + " if you get " + userInput + " on a " + dropDown[selectedIndex].value.toLowerCase() + " grade");
+        }
+        
+
+
+        input.value = "";
+    }
+
     setArrays();
+
+    function getNumOfGrades(gradePath){
+        let numOfGrades = 0;
+        for(var i = 0; i<gradePath.length; i++){
+            if(gradePath[i].indexOf('#') != 0){
+                numOfGrades++;
+            }
+        }
+        return numOfGrades;
+    }
     
     function average(gradePath){
         let sum = 0;
@@ -192,18 +409,50 @@ function GradesApp({setPage}){
             return average;
     }
 
+    function ifHitEnterKey(event){
+        console.log(event.key);
+        if(event.key == 'Enter')
+            calculateWhatIf();
+    }
+
     return(
         <Draggable handle='#header'>
+            
+            
             <div id='appWrapper'>
                 <div id='header'>
                     <button id='delete' onClick={()=>setPage('home')}>x</button>
                 </div>
                 <div id='content'>
+                {whatIf === 'yes' && 
+                <>
+                    <dialog open={true} id='what-if-container'>
+                        <div id='select-grade-type-container'>
+                            <label id='grade-type-label'>Grade Type: </label>
+                            <select name='gradeType' id='grade-type-select'>
+                                <option value='Other'>Other</option>
+                                <option value='Minor'>Minor</option>
+                                <option value='Major'>Major</option>
+                            </select>
+                        </div>
+                        
+                        <div id='input-grade-container'>
+                            <label id='input-grade-label'>Grade:</label>
+                            <input id='input-grade' type='text' onKeyDown={()=>ifHitEnterKey(event)}/>
+                        </div>
+
+                        <button id='calculate' onClick={()=>calculateWhatIf()}>Calculate Grade</button>
+
+                        <button id='close-what-if-calculator' onClick={()=>setWhatIf('no')}>close</button>
+                    </dialog>
+                </>
+            }
                     
                     {view === 'firstGrades' &&
                         <>
                             <div className='grades-header'>
                                 <button className='back-button' onClick={()=>setView('home')}></button>
+                                <button className='what-if-calculator' onClick={()=>setWhatIf('yes')}>What If</button>
                                 <h1 className='title'>{grades.first.name}</h1>
                                 <h1 className='individual-class-average'>{grades.first.average}</h1>
                             </div>
@@ -263,6 +512,7 @@ function GradesApp({setPage}){
                         <>
                             <div className='grades-header'>
                                 <button className='back-button' onClick={()=>setView('home')}></button>
+                                <button className='what-if-calculator' onClick={()=>setWhatIf('yes')}>What If</button>
                                 <h1 className='title'>{grades.second.name}</h1>
                                 <h1 className='individual-class-average'>{grades.second.average}</h1>
                             </div>
@@ -322,6 +572,7 @@ function GradesApp({setPage}){
                         <>
                            <div className='grades-header'>
                                 <button className='back-button' onClick={()=>setView('home')}></button>
+                                <button className='what-if-calculator' onClick={()=>setWhatIf('yes')}>What If</button>
                                 <h1 className='title'>{grades.third.name}</h1>
                                 <h1 className='individual-class-average'>{grades.third.average}</h1>
                             </div>
@@ -381,6 +632,7 @@ function GradesApp({setPage}){
                         <>
                             <div className='grades-header'>
                                 <button className='back-button' onClick={()=>setView('home')}></button>
+                                <button className='what-if-calculator' onClick={()=>setWhatIf('yes')}>What If</button>
                                 <h1 className='title'>{grades.fourth.name}</h1>
                                 <h1 className='individual-class-average'>{grades.fourth.average}</h1>
                             </div>
@@ -440,6 +692,7 @@ function GradesApp({setPage}){
                         <>
                             <div className='grades-header'>
                                 <button className='back-button' onClick={()=>setView('home')}></button>
+                                <button className='what-if-calculator' onClick={()=>setWhatIf('yes')}>What If</button>
                                 <h1 className='title'>{grades.fifth.name}</h1>
                                 <h1 className='individual-class-average'>{grades.fifth.average}</h1>
                             </div>
@@ -499,6 +752,7 @@ function GradesApp({setPage}){
                         <>
                             <div className='grades-header'>
                                 <button className='back-button' onClick={()=>setView('home')}></button>
+                                <button className='what-if-calculator' onClick={()=>setWhatIf('yes')}>What If</button>
                                 <h1 className='title'>{grades.sixth.name}</h1>
                                 <h1 className='individual-class-average'>{grades.sixth.average}</h1>
                             </div>
@@ -558,6 +812,7 @@ function GradesApp({setPage}){
                         <>
                             <div className='grades-header'>
                                 <button className='back-button' onClick={()=>setView('home')}></button>
+                                <button className='what-if-calculator' onClick={()=>setWhatIf('yes')}>What If</button>
                                 <h1 className='title'>{grades.seventh.name}</h1>
                                 <h1 className='individual-class-average'>{grades.seventh.average}</h1>
                             </div>
@@ -619,65 +874,94 @@ function GradesApp({setPage}){
                         <>
                         <h1 className='title'>Grades</h1>
                         <div className='class'>
-                            <button className='view-grades' onClick={()=>setView('firstGrades')}></button>
+                            
                             <h1 className='class-name'>{grades.first.name}</h1>
                             {grades.first.average != 0 ? (
-                                <h1 className='class-average'><span>{grades.first.average}</span></h1>
+                                <>
+                                    <button className='view-grades' onClick={()=>setView('firstGrades')}></button>
+                                    <h1 className='class-average'><span>{grades.first.average}</span></h1>
+                                </>
+                                
                             ) : (
                                 <h1 className='no-class-average'><span>{grades.first.average}</span></h1>
                             )}
                         </div>
                         <div className='class'>
-                            <button className='view-grades' onClick={()=>setView('secondGrades')}></button>
+                            
                             <h1 className='class-name'>{grades.second.name}</h1>
                             {grades.second.average != 0 ? (
-                                <h1 className='class-average'><span>{grades.second.average}</span></h1>
+                                <>
+                                    <button className='view-grades' onClick={()=>setView('secondGrades')}></button>
+                                    <h1 className='class-average'><span>{grades.second.average}</span></h1>
+                                </>
+                                
                             ) : (
                                 <h1 className='no-class-average'><span>{grades.second.average}</span></h1>
                             )}
                         </div>
                         
                         <div className='class'>
-                            <button className='view-grades' onClick={()=>setView('thirdGrades')}></button>
+                            
                             <h1 className='class-name'>{grades.third.name}</h1>
                             {grades.third.average != 0 ? (
-                                <h1 className='class-average'><span>{grades.third.average}</span></h1>
+                                <>
+                                    <button className='view-grades' onClick={()=>setView('thirdGrades')}></button>
+                                    <h1 className='class-average'><span>{grades.third.average}</span></h1>
+                                </>
+                                
                             ) : (
                                 <h1 className='no-class-average'><span>{grades.third.average}</span></h1>
                             )}
                         </div>
                         <div className='class'>
-                            <button className='view-grades' onClick={()=>setView('fourthGrades')}></button>
+                            
                             <h1 className='class-name'>{grades.fourth.name}</h1>
                             {grades.fourth.average != 0 ? (
-                                <h1 className='class-average'><span>{grades.fourth.average}</span></h1>
+                                <>
+                                    <button className='view-grades' onClick={()=>setView('fourthGrades')}></button>
+                                    <h1 className='class-average'><span>{grades.fourth.average}</span></h1>
+                                </>
+                                
                             ) : (
                                 <h1 className='no-class-average'><span>{grades.fourth.average}</span></h1>
                             )}
                         </div>
                         <div className='class'>
-                            <button className='view-grades' onClick={()=>setView('fifthGrades')}></button>
+                            
                             <h1 className='class-name'>{grades.fifth.name}</h1>
                             {grades.fifth.average != 0 ? (
-                                <h1 className='class-average'><span>{grades.fifth.average}</span></h1>
+                                <>
+                                    <button className='view-grades' onClick={()=>setView('fifthGrades')}></button>
+                                    <h1 className='class-average'><span>{grades.fifth.average}</span></h1>
+                                </>
+                                
+                                
                             ) : (
                                 <h1 className='no-class-average'><span>{grades.fifth.average}</span></h1>
                             )}
                         </div>
                         <div className='class'>
-                            <button className='view-grades' onClick={()=>setView('sixthGrades')}></button>
+                            
                             <h1 className='class-name'>{grades.sixth.name}</h1>
                             {grades.sixth.average != 0 ? (
-                                <h1 className='class-average'><span>{grades.sixth.average}</span></h1>
+                                <>
+                                    <button className='view-grades' onClick={()=>setView('sixthGrades')}></button>
+                                    <h1 className='class-average'><span>{grades.sixth.average}</span></h1>
+                                </>
+                                
                             ) : (
                                 <h1 className='no-class-average'><span>{grades.sixth.average}</span></h1>
                             )}
                         </div>
                         <div className='class'>
-                            <button className='view-grades' onClick={()=>setView('seventhGrades')}></button>
+                            
                             <h1 className='class-name'>{grades.seventh.name}</h1>
                             {grades.seventh.average != 0 ? (
-                                <h1 className='class-average'><span>{grades.seventh.average}</span></h1>
+                                <>
+                                    <button className='view-grades' onClick={()=>setView('seventhGrades')}></button>
+                                    <h1 className='class-average'><span>{grades.seventh.average}</span></h1>
+                                </>
+                                
                             ) : (
                                 <h1 className='no-class-average'><span>{grades.seventh.average}</span></h1>
                             )}
