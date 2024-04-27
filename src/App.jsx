@@ -1,15 +1,16 @@
 
 //to open up the website, in the terminal, type
 //npm run dev
-import WeatherApp from './WeatherApp.jsx';
-import GradesApp from './GradesApp.jsx';
+import WeatherApp from './WeatherApp/WeatherApp.jsx';
+import GradesApp from './GradesApp/GradesApp.jsx';
+import Music from './MusicApp/Music.jsx';
+import StudyApp from './StudyApp/StudyApp.jsx';
 import React, {useState} from "react";
 import './main.css';
 
 function App() {
     const [page, setPage] = useState("home");
-    
-    
+
 
     return(
         <> 
@@ -19,8 +20,17 @@ function App() {
             {page === 'grades' &&
                 <GradesApp setPage={setPage}/>
             }
+            {page === 'study' &&
+                <StudyApp setPage={setPage}/>
+            }
 
             <div id='homeScreen'>
+                <div id='header-container'>
+                    <div id='header-grey'>
+                        
+                    </div>
+                    <Music/>
+                </div>
                 
                 <div className='app-button'>
                     <button  id='weather-button' onClick={()=>setPage('weather')}></button>
@@ -30,6 +40,10 @@ function App() {
                 <div className='app-button'>
                     <button  id='grades-button' onClick={()=>setPage('grades')}></button>
                     <p>Grades</p>
+                </div>
+                <div className='app-button'>
+                    <button  id='study-button' onClick={()=>setPage('study')}></button>
+                    <p>Study</p>
                 </div>
             </div>
 

@@ -10,11 +10,25 @@
     color:black;
 }
 
+#header-grey{
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 50px;
+}
+
+#header-container{
+    position: absolute;
+    height: 100vw;
+    width: 100vw;
+}
+
 .app-button{
     height: 70px;
     width: 50px;
     border: none;
     margin: 10px;
+    position: relative;
+    top: 50px;
 }
 
 .app-button button{

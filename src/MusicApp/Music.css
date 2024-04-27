@@ -1,0 +1,51 @@
+#music-wrapper{
+    min-width: 800px;
+    min-height: 50px;
+    max-width: 800px;
+    max-height: 500px;
+    position: absolute;
+    z-index: 5;
+    top: 0px;
+}
+
+.show-songs-animation{
+    animation: fadeIn forwards 250ms;
+}
+.hide-songs-animation{
+    animation: fadeOut forwards 250ms;
+}
+
+@keyframes fadeIn {
+    from{height: 0px;width: 0px;opacity: 0;}
+    to{height: 310px;width: 510px;opacity: 1;}
+}
+@keyframes fadeOut {
+    from{height: 310px;width: 510px;opacity: 1;}
+    to{height: 0px;width: 0px;opacity: 0;}
+}
+
+#video-container{
+    background-color: rgb(255, 255, 255);
+    height: 0px;
+    width: 0px;
+    left: 10%;
+    margin: 10px;
+    position: relative;
+    box-shadow: 0px 5px 5px 5px rgba(0, 0, 0, 0.452);
+}
+
+.play-button{
+    margin: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(255, 255, 255);
+    left: 30%;
+    position: relative;
+    cursor: pointer;
+    transition: 250ms;
+}
+
+.play-button:hover{
+    background-color: rgb(145, 145, 145);
+}

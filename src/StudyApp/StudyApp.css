@@ -1,0 +1,77 @@
+#app-wrapper{
+    height: 100vw;
+    width: 100vw;
+    background-image: url('../assets/lofi-placeholder.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: absolute;
+    z-index: 1000;
+}
+
+#progress-bar{
+    width: 700px;
+    height: 700px;
+    background:conic-gradient(#d5e7b8, 360deg, #ff4242 0deg);
+    left: 50%;
+    top: 500px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    border-radius: 350px;  
+}
+
+#middle-progress-bar{
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    left: 50%;
+    top: 500px;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    position: absolute;
+    
+}
+
+#time-display{
+    position: absolute;
+    left: 50%;
+    top: 500px;
+    transform: translate(-50%, -50%);
+    font-size: 100px;
+}
+
+#time-input{
+    position: absolute;
+    left: 50%;
+    top: 600px;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 255, 255);
+    z-index: 1;
+    text-align: center;
+    border: none;
+    border-bottom: 2px solid black;
+    cursor:text;
+    outline: none;
+}
+#time-input::placeholder{
+    color: rgb(150, 150, 150);
+    text-align: center;
+}
+
+#start-button{
+    position: absolute;
+    left: 50%;
+    top: 650px;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    background-color: white;
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 250ms;
+}
+
+#start-button:hover{
+    background-color: black;
+    color: white;
+}
