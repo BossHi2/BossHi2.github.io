@@ -9,69 +9,148 @@
     z-index: 1000;
 }
 
-#progress-bar{
-    width: 700px;
-    height: 700px;
-    background:conic-gradient(#d5e7b8, 360deg, #ff4242 0deg);
-    left: 50%;
-    top: 500px;
-    transform: translate(-50%, -50%);
+#content{
+    height: 100vw;
+    width: 100vw;
     position: absolute;
-    border-radius: 350px;  
-}
-
-#middle-progress-bar{
-    width: 600px;
-    height: 600px;
-    border-radius: 50%;
-    left: 50%;
-    top: 500px;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    position: absolute;
-    
 }
 
 #time-display{
-    position: absolute;
-    left: 50%;
-    top: 500px;
-    transform: translate(-50%, -50%);
+    position: relative;
+    text-align: center;
     font-size: 100px;
+    color: white;
 }
 
-#time-input{
-    position: absolute;
-    left: 50%;
-    top: 600px;
-    transform: translate(-50%, -50%);
-    background-color: rgb(255, 255, 255);
-    z-index: 1;
+#display-total-time, #display-session-time{
+    color: white;
     text-align: center;
-    border: none;
-    border-bottom: 2px solid black;
-    cursor:text;
-    outline: none;
 }
-#time-input::placeholder{
-    color: rgb(150, 150, 150);
-    text-align: center;
+
+#delete-this-element{
+    position: absolute;
 }
 
 #start-button{
-    position: absolute;
+    position: relative;
     left: 50%;
-    top: 650px;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%);
     cursor: pointer;
-    background-color: white;
-    border: 2px solid black;
     padding: 10px;
     border-radius: 10px;
-    transition: 250ms;
 }
 
-#start-button:hover{
-    background-color: black;
+#stop-timer{
+    position: relative;
+    width: 150px;
+    height: 50px;
+    left: 50%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#settings-icon{
+    height: 50px;
+    width: 50px;
+    background-color: wheat;
+    position: absolute;
+    border-radius: 10px;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+}
+
+#settings-background{
+    width: 100vw;
+    height: 100vw;
+    backdrop-filter: blur(10px);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: 1000;
+    margin: 0;
+    position: absolute;
+    top: 0;
+
+}
+
+@keyframes fadeIn {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+.fade-in{
+    animation: fadeIn forwards 250ms;
+}
+
+.fade-out{
+    animation: fadeOut forwards 250ms;
+}
+
+#close-settings{
+    width: 100vw;
+    height: 100vw;
+    backdrop-filter: blur(10px);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: 1000;
+    margin: 0;
+    position: absolute;
     color: white;
+    top: 0;
+}
+
+@keyframes fadeOut {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+
+#settings-background h1{
+    color: white;
+    margin: 10px;
+    position: relative;
+}
+
+#settings-background input{
+    display: inline;
+    border: none;
+    border-bottom: 2px solid white;
+    outline: none;
+    background-color: transparent;
+    width: 50px;
+    caret-color: white;
+    color: white;
+    padding-bottom: 2px;
+    cursor: text;
+    font-size: 24px;
+}
+
+#settings-background input::placeholder{
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#work-time-label, #break-time-label{
+    display: inline;
+    padding-left: 40px;
+    padding-bottom: 40px;
+}
+
+#settings-title{
+    font-size: 100px;
+    text-align: center;
+    padding-bottom: 100px;
+}
+
+#settings-back-icon{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: wheat;
+    border: none;
+    cursor: pointer;
+    z-index: 5;
 }

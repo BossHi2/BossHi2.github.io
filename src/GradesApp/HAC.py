@@ -11,51 +11,37 @@ grades = {
         'first':{
                 'name': '',
                 'average':'',
-                'Major':[],
-                'Minor':[],
-                'Other':[],
+                'Grades': [],
         },
         'second':{
                 'name': '',
                 'average':'',
-                'Major':[],
-                'Minor':[],
-                'Other':[],    
+                'Grades': [],  
         },
         'third':{
                 'name': '',
                 'average':'',
-                'Major':[],
-                'Minor':[],
-                'Other':[],
+                'Grades': [],
         },
         'fourth':{
                 'name': '',
                 'average':'',
-                'Major':[],
-                'Minor':[],
-                'Other':[],  
+                'Grades': [], 
         },
         'fifth':{
                 'name': '',
                 'average':'',
-                'Major':[],
-                'Minor':[],
-                'Other':[],
+                'Grades': [],
         },
         'sixth':{
                 'name': '',
                 'average':'',
-                'Major':[],
-                'Minor':[],
-                'Other':[],
+                'Grades': [],
         },
         'seventh':{
                 'name': '',
                 'average':'',
-                'Major':[],
-                'Minor':[],
-                'Other':[],
+                'Grades': [],
         }
 }
 app = Flask(__name__)
@@ -87,7 +73,9 @@ class Browser:
                                 grade_type = assignments.find_elements(By.TAG_NAME, 'td')[3].text
                                 title = assignments.find_elements(By.TAG_NAME, 'td')[2].text
                                 score = assignments.find_elements(By.TAG_NAME, 'td')[4].text 
-                                grades['first'][grade_type].append(score + "#" + title)         
+                                date = assignments.find_elements(By.TAG_NAME, 'td')[0].text
+                                dictionary = {'type':grade_type, 'name':title, 'score':score, 'date':date}
+                                grades['first']['Grades'].append(dictionary.copy())         
                 except NoSuchElementException:
                         print('no first grades')
 
@@ -115,7 +103,9 @@ class Browser:
                                 grade_type = assignments.find_elements(By.TAG_NAME, 'td')[3].text
                                 title = assignments.find_elements(By.TAG_NAME, 'td')[2].text
                                 score = assignments.find_elements(By.TAG_NAME, 'td')[4].text 
-                                grades['second'][grade_type].append(score + "#" + title)   
+                                date = assignments.find_elements(By.TAG_NAME, 'td')[0].text
+                                dictionary = {'type':grade_type, 'name':title, 'score':score, 'date':date}
+                                grades['second']['Grades'].append(dictionary.copy())          
                         
 
                 except NoSuchElementException:
@@ -145,7 +135,9 @@ class Browser:
                                 grade_type = assignments.find_elements(By.TAG_NAME, 'td')[3].text
                                 title = assignments.find_elements(By.TAG_NAME, 'td')[2].text
                                 score = assignments.find_elements(By.TAG_NAME, 'td')[4].text 
-                                grades['third'][grade_type].append(score + "#" + title)   
+                                date = assignments.find_elements(By.TAG_NAME, 'td')[0].text
+                                dictionary = {'type':grade_type, 'name':title, 'score':score, 'date':date}
+                                grades['third']['Grades'].append(dictionary.copy())      
                         
                                         
 
@@ -176,7 +168,9 @@ class Browser:
                                 grade_type = assignments.find_elements(By.TAG_NAME, 'td')[3].text
                                 title = assignments.find_elements(By.TAG_NAME, 'td')[2].text
                                 score = assignments.find_elements(By.TAG_NAME, 'td')[4].text 
-                                grades['fourth'][grade_type].append(score + "#" + title)   
+                                date = assignments.find_elements(By.TAG_NAME, 'td')[0].text
+                                dictionary = {'type':grade_type, 'name':title, 'score':score, 'date':date}
+                                grades['fourth']['Grades'].append(dictionary.copy())      
                         
                 except NoSuchElementException:
                         print('no fourth grades')
@@ -205,7 +199,9 @@ class Browser:
                                 grade_type = assignments.find_elements(By.TAG_NAME, 'td')[3].text
                                 title = assignments.find_elements(By.TAG_NAME, 'td')[2].text
                                 score = assignments.find_elements(By.TAG_NAME, 'td')[4].text 
-                                grades['fifth'][grade_type].append(score + "#" + title)   
+                                date = assignments.find_elements(By.TAG_NAME, 'td')[0].text
+                                dictionary = {'type':grade_type, 'name':title, 'score':score, 'date':date}
+                                grades['fifth']['Grades'].append(dictionary.copy())      
                         
                 except NoSuchElementException:
                         print('no fifth grades')
@@ -234,7 +230,9 @@ class Browser:
                                 grade_type = assignments.find_elements(By.TAG_NAME, 'td')[3].text
                                 title = assignments.find_elements(By.TAG_NAME, 'td')[2].text
                                 score = assignments.find_elements(By.TAG_NAME, 'td')[4].text 
-                                grades['sixth'][grade_type].append(score + "#" + title)   
+                                date = assignments.find_elements(By.TAG_NAME, 'td')[0].text
+                                dictionary = {'type':grade_type, 'name':title, 'score':score, 'date':date}
+                                grades['sixth']['Grades'].append(dictionary.copy())       
                         
                 except NoSuchElementException:
                         print('no sixth grades')
@@ -263,7 +261,9 @@ class Browser:
                                 grade_type = assignments.find_elements(By.TAG_NAME, 'td')[3].text
                                 title = assignments.find_elements(By.TAG_NAME, 'td')[2].text
                                 score = assignments.find_elements(By.TAG_NAME, 'td')[4].text 
-                                grades['seventh'][grade_type].append(score + "#" + title)   
+                                date = assignments.find_elements(By.TAG_NAME, 'td')[0].text
+                                dictionary = {'type':grade_type, 'name':title, 'score':score, 'date':date}
+                                grades['seventh']['Grades'].append(dictionary.copy())      
                         
                 except NoSuchElementException:
                         print('no seventh grades')
@@ -296,3 +296,36 @@ if __name__ == '__main__':
         print('done')
         
 
+'''
+<div className='other-average'>
+                            {(document.getElementsByClassName('Other-grades').length) > 0 ? (
+                                <div className='average-display'>
+                                    <h1>Other</h1>
+                                    <h1>{average(document.getElementsByClassName('Other-grades'))}</h1>
+                                    <div className='other-color-average'></div>
+                                </div>
+                            ):(<></>)}
+                            
+                        </div>
+                        <div className='minor-average'>
+                            {document.getElementsByClassName('Minor-grades').length > 0 ? (
+                                <div className='average-display'>
+                                    <h1>Minor</h1>
+                                    <h1>{average(document.getElementsByClassName('Minor-grades'))}</h1>
+                                    <div className='minor-color-average'></div>
+                                </div>
+                                
+                            ):<></>}
+                        </div>
+                        
+                        <div className='major-average'>
+                            {document.getElementsByClassName('Major-grades').length > 0 ? (
+                                <div className='average-display'>
+                                    <h1>Major</h1>
+                                    <h1>{average(document.getElementsByClassName('Major-grades'))}</h1>
+                                    <div className='major-color-average'></div>
+                                </div>
+                            ):(<></>)}
+                        </div>
+                        
+'''
