@@ -1,8 +1,50 @@
 {
     "first": {
         "name": "ENG 1 KAP/GT B",
-        "average": 96.0,
+        "average": 92.0,
         "Grades": [
+            {
+                "type": "Minor",
+                "name": "Spring Final Review",
+                "score": "",
+                "date": "05/17/2024"
+            },
+            {
+                "type": "Major",
+                "name": "Research Project",
+                "score": "",
+                "date": "05/13/2024"
+            },
+            {
+                "type": "Other",
+                "name": "Novel of Choice Discussion Questions",
+                "score": "",
+                "date": "05/10/2024"
+            },
+            {
+                "type": "Major",
+                "name": "Anthropocene / Plagiarism Test",
+                "score": "87.00",
+                "date": "05/09/2024"
+            },
+            {
+                "type": "Minor",
+                "name": "3 Sources for Research Project",
+                "score": "100.0",
+                "date": "05/07/2024"
+            },
+            {
+                "type": "Minor",
+                "name": "Choice Novel Reading Response #2",
+                "score": "100.0",
+                "date": "05/02/2024"
+            },
+            {
+                "type": "Minor",
+                "name": "Novel Whole Class Discussion",
+                "score": "100.0",
+                "date": "05/01/2024"
+            },
             {
                 "type": "Minor",
                 "name": "Choice Novel Reading Response #1",
@@ -12,7 +54,7 @@
             {
                 "type": "Other",
                 "name": "Reading Response Practice",
-                "score": "",
+                "score": "100.0",
                 "date": "04/24/2024"
             },
             {
@@ -31,12 +73,36 @@
     },
     "second": {
         "name": "ALG 2 KAP/GT B",
-        "average": 97.0,
+        "average": 96.0,
         "Grades": [
+            {
+                "type": "Major",
+                "name": "Module 16 Test",
+                "score": "",
+                "date": "05/13/2024"
+            },
+            {
+                "type": "Other",
+                "name": "HW 16.2-16.3",
+                "score": "",
+                "date": "05/10/2024"
+            },
+            {
+                "type": "Minor",
+                "name": "Quiz 16.1 Logarithms",
+                "score": "94.00",
+                "date": "05/07/2024"
+            },
+            {
+                "type": "Other",
+                "name": "HW 16.1 Logs",
+                "score": "100.0",
+                "date": "05/07/2024"
+            },
             {
                 "type": "Minor",
                 "name": "Quiz 15.1-15.2",
-                "score": "",
+                "score": "94.00",
                 "date": "05/01/2024"
             },
             {
@@ -208,6 +274,24 @@
         "average": 86.0,
         "Grades": [
             {
+                "type": "Other",
+                "name": "ECO PROJ - DRAFT SHEET #2",
+                "score": "100.0",
+                "date": "05/06/2024"
+            },
+            {
+                "type": "Other",
+                "name": "ECO PROJ -",
+                "score": "100.0",
+                "date": "05/03/2024"
+            },
+            {
+                "type": "Minor",
+                "name": "ECO PROJ - Infographic",
+                "score": "89.00",
+                "date": "04/30/2024"
+            },
+            {
                 "type": "Major",
                 "name": "RAT - Rat Practical Test",
                 "score": "80.00",
@@ -273,6 +357,36 @@
         "average": 100.0,
         "Grades": [
             {
+                "type": "Minor",
+                "name": "College board revew Quiz #8",
+                "score": "96.00",
+                "date": "05/06/2024"
+            },
+            {
+                "type": "Other",
+                "name": "College Board practice MCQ 7",
+                "score": "100.0",
+                "date": "05/03/2024"
+            },
+            {
+                "type": "Other",
+                "name": "College board practice #6",
+                "score": "100.0",
+                "date": "05/03/2024"
+            },
+            {
+                "type": "Minor",
+                "name": "College Board Review Quiz 5",
+                "score": "97.00",
+                "date": "05/01/2024"
+            },
+            {
+                "type": "Other",
+                "name": "College board practice MCQ #3",
+                "score": "100.0",
+                "date": "04/26/2024"
+            },
+            {
                 "type": "Major",
                 "name": "PT Create Complete",
                 "score": "100.0",
@@ -297,10 +411,34 @@
         "average": 100.0,
         "Grades": [
             {
+                "type": "Minor",
+                "name": "Minor 4: Tema 6 - Imperfecto progresivo y preterito",
+                "score": "100.0",
+                "date": "05/07/2024"
+            },
+            {
+                "type": "Other",
+                "name": "Conjuguemos",
+                "score": "100.0",
+                "date": "05/03/2024"
+            },
+            {
+                "type": "Other",
+                "name": "Imperfect Progresive Tense",
+                "score": "100.0",
+                "date": "05/02/2024"
+            },
+            {
                 "type": "Major",
                 "name": "Panel de Emergencias",
                 "score": "100.0",
                 "date": "04/29/2024"
+            },
+            {
+                "type": "Other",
+                "name": "PAQ6 - pg. 5",
+                "score": "100.0",
+                "date": "04/25/2024"
             },
             {
                 "type": "Minor",
